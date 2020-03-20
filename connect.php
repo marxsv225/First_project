@@ -1,0 +1,28 @@
+<?php
+// // Enter your Host, username, password, database below.
+// // I left password empty because i do not set password on localhost.
+// $con = mysqli_connect("localhost","root","","monblog_db");
+// // Check connection
+// if (mysqli_connect_errno())
+//   {
+//   echo "Failed to connect to MySQL: " . mysqli_connect_error();
+//   }
+
+
+// On met en variables les informations de connexion 
+$hote = 'localhost'; // Adresse du serveur 
+$login = 'root'; // Login 
+$pass = ''; // Mot de passe 
+$base = 'monblog_db'; // Base de données à utiliser 
+ 
+// On se connecte à la base de données 
+$con=mysqli_connect($hote, $login, $pass); 
+ 
+// On selectionne la base de données souhaitée 
+mysqli_select_db($con, $base); 
+if (mysqli_connect_errno())
+  {
+  echo "Failed to connect to MySQL: " . mysqli_connect_error();
+  }
+
+?>
