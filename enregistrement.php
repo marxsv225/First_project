@@ -1,91 +1,111 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Mon Blog</title>
-    <link rel="stylesheet" href="dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="dist/css/bootstrap.css">
-    <link rel="stylesheet" href="dist/css/mystyle.css">
-    <link rel="stylesheet" href="dist/css/calculate.css">
-    <!-- start favicon -->
-    <link rel="apple-touch-icon" sizes="57x57" href="images/favicon/apple-icon-57x57.png">
-    <link rel="apple-touch-icon" sizes="60x60" href="images/favicon/apple-icon-60x60.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="../images/favicon/apple-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="../images/favicon/apple-icon-76x76.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="../images/favicon/apple-icon-114x114.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="../images/favicon/apple-icon-120x120.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="../images/favicon/apple-icon-144x144.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="../images/favicon/apple-icon-152x152.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="../images/favicon/apple-icon-180x180.png">
-    <link rel="icon" type="image/png" sizes="192x192"  href="../images/favicon/android-icon-192x192.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="../images/favicon/favicon-96x96.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="../images/favicon/favicon-16x16.png">
-    <link rel="manifest" href="../images/favicon/manifest.json">
-    <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="msapplication-TileImage" content="../images/favicon/ms-icon-144x144.png">
-    <meta name="theme-color" content="#ffffff">
-    <!--end favicon  -->
+<?php
+include "connect.php";
 
-  <script type="text/javascript" src="dist/js/jquery2.js"></script>
-  <script  src="dist/js/myjs.js"></script>
-    <title>Document</title>
-</head>
-<body>
-<?php include("connect.php") ?>  
-<div class="wrapper fadeInDown">
-  <div id="formContent">
-    <!-- Tabs Titles -->
-
-    <!-- Icon -->
-    <div class="fadeIn first">
-      <img src="images/VAKA MARCEL.png" id="icon" alt="User Icon" />
-      <h3></h3>
-    </div>
-
-    <!-- register Form -->
-    <form action="insert.php" method="post">
-     <center>
-      <div class=" row">        
-        <div class="col-md-12">
-            <input type="Text" class="fadeIn second" name="login" placeholder="votre nom complet" required>
-        </div>
-      </div>
-    <div class="row">
-      <div class="col-md-12">
-        <input type="email" class="fadeIn second" name="email" placeholder="Votre email">
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-12">
-        <input type="password" class="fadeIn second" name="password" placeholder="votre mot de passe">
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-12">
-        <input type="password"  class="fadeIn second" name="conf_password" placeholder="Veuillez confirmer le mot de passe">
-      </div>
-    </div>
-    <div class="row">
-    <div class="col-md-3 col-sm-3"></div>
-      <div class="col-md-6 col-sm-6">
-        <input class="" name="submit"  type="submit" value="S'ENREGISTRER">
-      </div>
-      <div class="col-md-3 col-sm-3"></div>
-    </div>
-    </center> 
-    </form>
+$login=$_POST['login'];
+$email=$_POST['email'];
+$password= md5($_POST['password']);
+$conf_password= md5($_POST['conf_password']);
+$trn_date = date("Y-m-d H:i:s");
+if ( $_POST['conf_password'] != $_POST['password'] ) {
+     
+       $errreur = '<span style="color:red; font-weight:normal;">Les 2 mots de passe sont différents! </span>';
+       
+    }
+    else {
     
-    <!-- Remind Passowrd -->
-    <div id="formFooter">
-      <a class="underlineHover" href="index.php">Accueil</a>
-      <a class="underlineHover" href="connexion.php">Se connecter</a>
-    </div>
+$inserer = "INSERT INTO users (nom_prenoms, email, password, date) 
+    VALUES ('$login', '$email', '$password', '$trn_date')";
 
-  </div>
-</div>
-</body>
-</html>
+    mysqli_query ($con, $inserer) or die ('Erreur SQL !'.$inserer.'<br/>'.mysql_error());
+
+    echo ' <div style="padding-left:240px; margin-top: 10px; margin-bottom:-10px">Votre inscription a bien été pris en compte. <a class="underlineHover" href="index.php">Accueil</a>
+    <a class="underlineHover" href="connexion.php">Se connecter</a></div>';
+
+    header('location: connexion.php');
+}
+
+
+
+
+// If form submitted, insert values into the database.
+// if (isset($_REQUEST['submit'])){
+//         // removes backslashes
+//  $username = stripslashes($_REQUEST['login']);
+//         //escapes special characters in a string
+//  $username = mysqli_real_escape_string($con,$username); 
+//  $email = stripslashes($_REQUEST['email']);
+//  $email = mysqli_real_escape_string($con,$email);
+//  $password = stripslashes($_REQUEST['password']);
+//  $password = mysqli_real_escape_string($con,$password);
+//  $confpassword = stripslashes($_REQUEST['conf_password']);
+//  $confpassword = mysqli_real_escape_string($con,$confpassword);
+//  $trn_date = date("Y-m-d H:i:s");
+//       $query = "INSERT into `users` (nom_prenoms, email, password, confirm_password, trn_date)
+// VALUES ('$username', '$email', '".md5($password)."', '".md5($confpassword)."', '$trn_date')";
+//        $result = mysqli_query($con,$query);
+//         if($result){
+//             echo "<div class='form'>
+// <h3>You are registered successfully.</h3>
+// <br/>Click here to <a href='login.php'>Login</a></div>";
+//        }
+//     }else{
+//        }
+
+
+// if(isset($_POST['valider'])){
+//     $champs_vide=array();
+         
+//     if (empty($_POST['login'])){
+//          $champs_vide[]='"login"';
+//     }
+                         
+//     if (empty($_POST['email']) || !filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {      
+//           $champs_vide[] = '"Email"';
+//           echo 'Email invalide';
+//           $champs_mail[] = array();
+//           $champs_mail[] = "invalie";                   
+//     }
+     
+//     if (empty ($_POST['password'])){
+//          $champs_vide[]='"mot de passe"';   
+//     }
+     
+//     if (empty ($_POST['conf_password'])){
+//          $champs_vide[]='"confirmer mot de passe"';
+//     }
+     
+ 
+//    if ( $_POST['conf_password'] != $_POST['password'] ) {
+     
+//       echo '<span style="color:red; font-weight:normal;">Les 2 mots de passe sont différents! </span>';
+//       $champs_double = array();
+//       $champs_double[] = "doublons";
+// }
+// if (empty ($champs_vide) && empty($champs_mail)){      
+         
+//     $login=$_POST['login'];
+//     $email=$_POST['email'];
+//     $password=$_POST['password'];
+//     $conf_password=$_POST['conf_password'];
+   
+//   echo ' <div style="padding-left:240px; margin-top: 10px; margin-bottom:-10px">Votre inscription a bien été pris en compte.</div>';
+   
+   
+   
+   
+//      $sql='INSERT INTO users VALUES("","'.$login.'","'.$email.'", "'.$password.'", "'.$conf_password.'",NOW())';
+   
+//      mysqli_query($sql) or die('Erreur SQL!'.$sql. '<br>' .mysql_error());
+   
+//      mysql_close();
+//                          } //champs_vide
+   
+// else {
+//     if (!empty($champs_vide)){
+//       echo '<div style="padding-left:150px; color:red; margin-bottom: -15px"><h4 style="padding-left:90px; padding-bottom:10px;">Merci de remplir le champs suivant:</h4> <span style="text-align:center">' .implode($champs_vide). '</span></div>'; 
+//      }
+// }
+      
+// }
+
+?>

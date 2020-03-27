@@ -1,3 +1,7 @@
+<?php
+require_once ("securite.php");
+?>
+<?php include "connect.php"; ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -33,24 +37,6 @@
     <meta name="msapplication-TileImage" content="images/favicon/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
     <!--end favicon  -->
-    <SCript>
-      window.onload=function() {
-  document.forms[0].onsubmit=function() { // first form on page
-    var prix = this.elements[0].value; // first field in form
-    if (prix == "") {
-      alert("Please enter a country");
-      return false;
-    }
-    var coutarticle = this.elements[1].selectedIndex; // second field
-    if (coutarticle < 1) { // your first option does not have a value 
-      alert("Please select a state");
-      return false;
-    }
-    return true; // allow submission
-  }
-}
-    </SCript>
-
   <script type="text/javascript" src="dist/js/jquery2.js"></script>
 	</head>
   <body>
@@ -128,12 +114,19 @@
               <a onclick="$('#myModal').modal('show');" class="point">
                 <span class="glyphicon glyphicon-shopping-cart" title="Achat"></span> Achat
               </a>
-              <a href="enregistrement.php" class="connect" title="S'enregistrer">
-                <span class="glyphicon glyphicon-lock"></span> 
-              </a>
               <a href="connexion.php" class="connect" title="Se connecter">
                 <span class="glyphicon glyphicon-user"></span> 
-              </a>
+              </a> 
+              <span class="dropdown">
+                <span><?php echo ((isset($_SESSION['PROFILE']))?($_SESSION['nom_prenoms']):""); ?></span>
+                <span class="dropdown-content">
+                <a href="logout.php" class="text-primary">
+                  Déconnexion
+                </a>
+                </span>
+              </span>
+              
+              
             </div>
           </form>
           

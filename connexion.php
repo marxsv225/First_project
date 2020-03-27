@@ -1,84 +1,63 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Mon Blog</title>
-    <link rel="stylesheet" href="dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="dist/css/bootstrap.css">
-    <link rel="stylesheet" href="dist/css/mystyle.css">
-    <link rel="stylesheet" href="dist/css/calculate.css">
-    <!-- start favicon -->
-    <link rel="apple-touch-icon" sizes="57x57" href="../images/favicon/apple-icon-57x57.png">
-    <link rel="apple-touch-icon" sizes="60x60" href="../images/favicon/apple-icon-60x60.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="../images/favicon/apple-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="../images/favicon/apple-icon-76x76.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="../images/favicon/apple-icon-114x114.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="../images/favicon/apple-icon-120x120.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="../images/favicon/apple-icon-144x144.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="../images/favicon/apple-icon-152x152.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="../images/favicon/apple-icon-180x180.png">
-    <link rel="icon" type="image/png" sizes="192x192"  href="../images/favicon/android-icon-192x192.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="../images/favicon/favicon-96x96.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="../images/favicon/favicon-16x16.png">
-    <link rel="manifest" href="../images/favicon/manifest.json">
-    <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="msapplication-TileImage" content="../images/favicon/ms-icon-144x144.png">
-    <meta name="theme-color" content="#ffffff">
-    <!--end favicon  -->
+<?php
+    // on se connecte à notre base
+    include "connect.php";
 
-  <script type="text/javascript" src="dist/js/jquery2.js"></script>
-  <script  src="dist/js/myjs.js"></script>
-    <title>Document</title>
-</head>
-<body>
-<div class="wrapper fadeInDown">
-  <div id="formContent">
-    <!-- Tabs Titles -->
+// $email=$_POST['email'];
+// $pass=md5($_POST['password']);
+// $ps= "SELECT * FROM users WHERE email=? AND password=?";
+// $parametres=array($email, $pass);
 
-    <!-- Icon -->
-    <div class="fadeIn first">
-      <img src="images/VAKA MARCEL.png" id="icon" alt="User Icon" />
-      <h3></h3>
-    </div>
+// {
+//     session_start();
+//     $_SESSION['PROFILE']=$user;
+//     header("location: liste.php");
 
-    <!-- Login Form -->
-    <form action="connecter.php" method="post">
-     <center>
-      <div class=" row">        
-        <div class="col-md-12">
-            <input type="email" id="nomb1" class="fadeIn second" name="email" placeholder="votre e-mail">
-        </div>
-      </div>
-    <div class="row">
-      <div class="col-md-12">
-        <input type="password" id="nomb1" class="fadeIn second" name="password" placeholder="votre mot de passe">
-      </div>
-    </div>
-    <div class=" row">
-    <div class="col-md-3 col-sm-3"></div>
-      <div class="col-md-6 col-sm-6">
-        <input class="" id="plus" type="submit" value="connexion" name="connexion">
-      </div>
-      <div class="col-md-3 col-sm-3"></div>
-    </div>
-    </center> 
-    </form>
-    
-    <!-- Remind Passowrd -->
-    <div id="formFooter">
-      <a class="underlineHover" href="index.php">Accueil</a>
-      <a class="underlineHover" href="enregistrement.php">Créer un compte</a>
-      <a class="underlineHover" href="#">Mode de passe oublié ?</a>
-    </div>
-
-  </div>
-</div> 
+// }
+// else{
+//     header("location: connexion.php");
+// }
 
 
-
-</body>
-</html>
+/*
+Page: connexion.php
+*/
+ // à mettre tout en haut du fichier .php, cette fonction propre à PHP servira à maintenir la $_SESSION
+if(isset($_POST['connexion'])) { // si le bouton "Connexion" est appuyé
+    // on vérifie que le champ "Pseudo" n'est pas vide
+    // empty vérifie à la fois si le champ est vide et si le champ existe belle et bien (is set)
+    if(empty($_POST['nom'])) {
+        echo "Veuillez renseigner votre Login.";
+    } else {
+        // on vérifie maintenant si le champ "Mot de passe" n'est pas vide"
+        if(empty($_POST['password'])) {
+            echo "Veuillez renseigner votre mot de passe.";
+        } else {
+            // les champs sont bien posté et pas vide, on sécurise les données entrées par le membre:
+            $nom = htmlentities($_POST['nom'], ENT_QUOTES, "ISO-8859-1"); // le htmlentities() passera les guillemets en entités HTML, ce qui empêchera les injections SQL
+            $MotDePasse = htmlentities($_POST['password'], ENT_QUOTES, "ISO-8859-1");
+            //on se connecte à la base de données:
+            // $mysqli = mysqli_connect("domaine.tld", "nom d'utilisateur", "mot de passe", "base de données");
+            //on vérifie que la connexion s'effectue correctement:
+            // if(!$mysqli){
+            //     echo "Erreur de connexion à la base de données.";
+            // } else {
+                // on fait maintenant la requête dans la base de données pour rechercher si ces données existe et correspondent:
+                $Requete = mysqli_query($con,"SELECT * FROM users WHERE nom_prenoms = '".$nom."' AND password = '".md5($MotDePasse)."'");//si vous avez enregistré le mot de passe en md5() il vous suffira de faire la vérification en mettant mdp = '".md5($MotDePasse)."' au lieu de mdp = '".$MotDePasse."'
+                // si il y a un résultat, mysqli_num_rows() nous donnera alors 1
+                // si mysqli_num_rows() retourne 0 c'est qu'il a trouvé aucun résultat
+                if(mysqli_num_rows($Requete) == 0) {
+                    $mesereur= 'Le login ou le mot de passe est incorrect, le compte na pas été trouvé.  ';
+                } else {
+                    // on ouvre la session avec $_SESSION:
+                    session_start();
+                    $_SESSION['PROFILE']=$Requete;
+                    $_SESSION['nom_prenoms'] = $nom; // la session peut être appelée différemment et son contenu aussi peut être autre chose que le mail
+                    header("location: index.php");
+                    
+                }
+            // }
+        }
+    }
+}
+include "connexion_form.php";
+?>
