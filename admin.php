@@ -14,30 +14,57 @@
     <div id="home" class="tab-pane fade in active">
     <div class="row">
       <div class="col-xs-6 col-md-6">
-        <a href="#" class="btn btn-danger btn-lg" role="button"><span class="glyphicon glyphicon-list-alt"></span> <br/>Apps</a>
-        <a href="#" class="btn btn-warning btn-lg" role="button"><span class="glyphicon glyphicon-bookmark"></span> <br/>Bookmarks</a>
-        <a href="#" class="btn btn-primary btn-lg" role="button"><span class="glyphicon glyphicon-signal"></span> <br/>Reports</a>
-        <a href="#" class="btn btn-primary btn-lg" role="button"><span class="glyphicon glyphicon-comment"></span> <br/>Comments</a>
-      </div>
-      <div class="col-xs-6 col-md-6">
-        <a href="#" class="btn btn-success btn-lg" role="button"><span class="glyphicon glyphicon-user"></span> <br/>Users</a>
-        <a href="#" class="btn btn-info btn-lg" role="button"><span class="glyphicon glyphicon-file"></span> <br/>Notes</a>
-        <a href="#" class="btn btn-primary btn-lg" role="button"><span class="glyphicon glyphicon-picture"></span> <br/>Photos</a>
-        <a href="#" class="btn btn-primary btn-lg" role="button"><span class="glyphicon glyphicon-tag"></span> <br/>Tags</a>
+         <!-- con -->
       </div>
     </div>
     </div>
     <div id="menu1" class="tab-pane fade">
-      <h3>Menu 1</h3>
-      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+      <div>
+       1
+        <ul class="list-group">
+          <a href="#" class="list-group-item active">
+            <br/><br/><i class="glyphicon glyphicon-home"></i> Home<br/><br/>
+          </a>
+          <a href="#" class="list-group-item ">
+            <br/><br/><i class="glyphicon glyphicon-road"></i> Train<br/><br/>
+          </a>
+          <a href="#" class="list-group-item">
+            <br/><br/><h4 class="glyphicon glyphicon-transfer"></h4> Trip<br/><br/>
+          </a>
+        </ul>
+
+        <div class="bhoechie-tab-content active">
+          <center>
+            <h1 class="glyphicon glyphicon-wrench" style="font-size:14em;color:#00001a"></h1>
+            <h2 style="margin-top: 0;color:#00001a">Welcome</h2>
+            <h3 style="margin-top: 0;color:#00001a">Administrator HomePage</h3>
+          </center>
+        </div>
+                <!-- train section -->
+        <div class="bhoechie-tab-content">
+          <center>
+            <h1 class="glyphicon glyphicon-road" style="font-size:12em;color:#00001a"></h1>
+            <h2 style="margin-top: 0;color:#00001a"><a href="" class="btn btn-sm btn-primary btn-block" role="button">Trains</a></h2>
+            <h3 style="margin-top: 0;color:#00001a">Train Settings</h3>
+          </center>
+        </div>
+    
+                <!-- hotel search -->
+        <div class="bhoechie-tab-content">
+          <center>
+            <h1 class="glyphicon glyphicon-transfer" style="font-size:12em;color:#00001a"></h1>
+            <h2 style="margin-top: 0;color:#00001a"><a href="" class="btn btn-sm btn-primary btn-block" role="button">Trips</a></h2>
+            <h3 style="margin-top: 0;color:#00001a">Trip Settings</h3>
+           </center>
+        </div>
+
+      </div>
     </div>
     <div id="menu2" class="tab-pane fade">
-      <h3>Menu 2</h3>
-      <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+      2
     </div>
     <div id="menu3" class="tab-pane fade">
-      <h3>Menu 3</h3>
-      <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+      3
     </div>
   </div>
 </div>

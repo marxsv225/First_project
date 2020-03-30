@@ -138,7 +138,13 @@ require_once ("securite.php");
               <img src="images/VAKA MARCEL.png" alt="Blog de VAKA" class="img-responsive monlogo" width="130" height="100">
             </div>
             <ul class="menu">
-              <li><a href="realisations/calculate.php"> REALISATIONS </a></li>
+              <li><a href="#collapse1" data-toggle="collapse" data-parent="#accordion"> REALISATIONS </a></li>
+              <div id="collapse1" class="panel-collapse collapse">
+                <div class="panel-body">
+                  <li><a href="realisations/calculate.php"> Calculatrice </a></li>
+                  <li><a href="realisations/conjugaison/index.php"> Conjugaison </a></li>
+                </div>
+              </div>
               <li><a href=""> BLOG </a></li>
               <li><a href=""> FORUM </a></li>
               <li><a href=""> CONTACT </a></li>

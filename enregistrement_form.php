@@ -49,7 +49,7 @@
     <?php if (!empty($errreur)) { ?>
         <p class="errorMessage"><?php echo $errreur; ?></p>
       <?php } ?>
-    <form action="enregistrement.php" method="post">
+    <form action="" method="post">
      <center>
       <div class=" row">        
         <div class="col-md-12">
@@ -74,7 +74,7 @@
     <div class="row">
     <div class="col-md-3 col-sm-3"></div>
       <div class="col-md-6 col-sm-6">
-        <input class="" name="submit"  type="submit" value="S'ENREGISTRER">
+        <input class="" name="valider"  type="submit" value="S'ENREGISTRER">
       </div>
       <div class="col-md-3 col-sm-3"></div>
     </div>
