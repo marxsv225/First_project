@@ -11,8 +11,8 @@
 
 // On met en variables les informations de connexion 
 $hote = 'localhost'; // Adresse du serveur 
-$log = 'root'; // Login 
-$pass = ''; // Mot de passe 
+$log = 'vaka'; // Login 
+$pass = 'VAKAadmin2020'; // Mot de passe 
 $base = 'monblog_db'; // Base de données à utiliser 
  
 // On se connecte à la base de données 

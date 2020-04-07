@@ -152,6 +152,22 @@
             } else{
                 if($position !== false ){
                     if($temps == 'present'){
+                        if ($verbe[0]=="a" || $verbe[0]=="e" || $verbe[0]=="i" || $verbe[0]=="o") {
+                            echo "<br>";
+                            echo "<br>";
+                            echo "<h4><u><center>Le verbe <font color='red'>$verbe</font> au présent</center></u></h4>";
+        
+                            echo "<center>";
+                            echo "J' ".lreplace("er","<font color='red'>e</font>",$verbe)."<br/>";
+                            echo "Tu ".lreplace("er","<font color='red'>es</font>",$verbe)."<br/>";
+                            echo "Il ".lreplace("er","<font color='red'>e</font>",$verbe)."<br/>";
+                            echo "Nous ".lreplace("er","<font color='red'>ons</font>",$verbe)."<br/>";
+                            echo "Vous ".lreplace("er","<font color='red'>ez</font>",$verbe)."<br/>";
+                            echo "Ils ".lreplace("er","<font color='red'>ent</font>",$verbe)."<br/>";
+                            echo "</center>";
+        
+                        }
+                        else{
     
                         echo "<br>";
                         echo "<br>";
@@ -165,7 +181,7 @@
                         echo "Vous ".lreplace("er","<font color='red'>ez</font>",$verbe)."<br/>";
                         echo "Ils ".lreplace("er","<font color='red'>ent</font>",$verbe)."<br/>";
                         echo "</center>";
-    
+                    }
     
                     }elseif($temps == 'futur'){
                         echo "<br>";

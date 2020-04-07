@@ -1,7 +1,13 @@
 <?php
-require_once ("securite.php");
+// require_once ("securite.php");
+// session_start();
 ?>
 <?php include "connect.php"; ?>
+<?php
+$requete = 'SELECT * FROM users';
+$que = mysqli_query($con, $requete) or die ('Erreur SQL !'.$requete.'<br/>'.mysql_error());
+$data=mysqli_fetch_array($que);
+ ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -44,7 +50,7 @@ require_once ("securite.php");
 <nav class="navbar navbar-default navbar-inverse navbar-fixed-top">
         <div class="container-fluid monmenu">
           <div class="navbar-header">
-            <a href="index.html" class="navbar-brand">
+            <a href="index.php" class="navbar-brand">
               <img src="images/VAKA MARCEL.png" alt="Blog de VAKA" class="img-responsive monlogo" width="150" height="100">
             </a>
             <!-- POUR LE MENU EN MODE MOBILE -->
@@ -111,14 +117,19 @@ require_once ("securite.php");
               <!-- <img src="images/facebook.png" alt="" width="20" height="20">
               <img src="images/twitter.png" alt="" width="20" height="20"> -->
 
-              <a onclick="$('#myModal').modal('show');" class="point">
+              <!-- <a onclick="$('#myModal').modal('show');" class="point"> -->
+                <a href="catalogue.php" class="point">
                 <span class="glyphicon glyphicon-shopping-cart" title="Achat"></span> Achat
               </a>
               <a href="connexion.php" class="connect" title="Se connecter">
                 <span class="glyphicon glyphicon-user"></span> 
               </a> 
               <span class="dropdown">
-                <span><?php echo ((isset($_SESSION['PROFILE']))?($_SESSION['nom_prenoms']):""); ?></span>
+                <span>
+                  <?php echo ((isset($_SESSION['PROFILE']))?('<img src="images/'.$_SESSION['photo'].'" alt="Avatar" style="max-width:30px;max-height:30px; border-radius:50%"/>'):"");   
+                    
+                  ?>
+                </span>
                 <span class="dropdown-content">
                 <a href="logout.php" class="text-primary">
                   Déconnexion
@@ -177,3 +188,4 @@ require_once ("securite.php");
         </div>
         
       </nav>
+      <div class="container-fluid moncontainer">

@@ -43,15 +43,15 @@
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="index.html">Dashboard</a></li>
+            <li class=""><a href="index.php">Dashboard</a></li>
             <li><a href="articles.php">Articles</a></li>
-            <li><a href="posts.html">Visiteurs</a></li>
-            <li><a href="users.html">Autres</a></li>
+            <li><a href="#">Visiteurs</a></li>
+            <li><a href="#">Autres</a></li>
           </ul>
 
           <ul class="nav navbar-nav navbar-right">
-            <li class="active"><a href="index.html">Welcome, Madhav</a></li>
-            <li><a href="login.html">Logout</a></li>
+            <li class="active"><a href="index.php">Welcome, [username]</a></li>
+            <li><a href="#">Logout</a></li>
           
           </ul>
         </div><!--/.nav-collapse -->
@@ -65,7 +65,7 @@
           </div>
           <div class="col-md-2">
            <div class="dropdown">
-            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Create Content
+            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Créer contenu
             <span class="caret"></span></button>
             <ul class="dropdown-menu">
                 <li><a href="#">Add Pages</a></li>

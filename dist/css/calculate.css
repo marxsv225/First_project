@@ -129,7 +129,7 @@ html {
     transform: scale(0.95);
   }
   
-  input[type=text], input[type=email], input[type=password] {
+  input[type=text], input[type=email], input[type=password], input[type=file] {
     background-color: #c9d1eb;
     border: none;
     color: #0d0d0d;
@@ -150,7 +150,7 @@ html {
     border-radius: 5px 5px 5px 5px;
   }
   
-  input[type=text]:focus, input[type=email]:focus, input[type=password]:focus {
+  input[type=text]:focus, input[type=email]:focus, input[type=password]:focus, input[type=file]:focus {
     background-color: #fff;
     border-bottom: 2px solid #0f2f5b;
   }

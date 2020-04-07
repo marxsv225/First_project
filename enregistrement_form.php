@@ -49,7 +49,7 @@
     <?php if (!empty($errreur)) { ?>
         <p class="errorMessage"><?php echo $errreur; ?></p>
       <?php } ?>
-    <form action="" method="post">
+    <form action="" method="post" enctype="multipart/form-data">
      <center>
       <div class=" row">        
         <div class="col-md-12">
@@ -59,6 +59,11 @@
     <div class="row">
       <div class="col-md-12">
         <input type="email" class="fadeIn second" name="email" placeholder="Votre email">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <input type="file" class="fadeIn second" name="photo" placeholder="Selectionner votre photo">
       </div>
     </div>
     <div class="row">

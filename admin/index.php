@@ -1,3 +1,8 @@
+<?php
+include "../connect.php";
+$requete= 'SELECT * FROM articles ORDER BY id_art ASC';
+$que = mysqli_query($con, $requete) or die ('Erreur SQL !'.$requete.'<br/>'.mysql_error());
+ ?>
 <?php include "partials/_menu.php" ?>
 <br>
 
@@ -19,21 +24,21 @@
         Dashboard <span class="badge">12</span>
       </a>
       <a href="pages.html" class="list-group-item"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> Pages<span class="badge">25</span></a>
-      <a href="posts.html" class="list-group-item"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Posts<span class="badge">126</span></a>
-      <a href="users.html" class="list-group-item"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Users <span class="badge">12</span></a>
+      <a href="posts.html" class="list-group-item"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> articles<span class="badge">126</span></a>
+      <a href="users.html" class="list-group-item"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Utilisateurs <span class="badge">12</span></a>
     </div>
 
       </div>
       <div class="col-md-9">
           <div class="panel panel-default">
   <div class="panel-heading" style="background-color: #0f2f5b; color:#fff">
-    <h3 class="panel-title">Website Overview</h3>
+    <h3 class="panel-title">Resumé</h3>
   </div>
   <div class="panel-body">
    <div class="col-md-3">
      <div class="well dash-box">
        <h2><span class="glyphicon glyphicon-user" aria-hidden="true"></span> 12</h2>
-       <h4>Users</h4>
+       <h4>Utilisateurs</h4>
      </div>
    </div>
    <div class="col-md-3">
@@ -45,13 +50,13 @@
    <div class="col-md-3">
      <div class="well dash-box">
        <h2><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>126</h2>
-       <h4>Posts</h4>
+       <h4>Articles</h4>
      </div>
    </div>
    <div class="col-md-3">
      <div class="well dash-box">
        <h2><span class="glyphicon glyphicon-stats" aria-hidden="true"></span> 2129</h2>
-       <h4>Visitores</h4>
+       <h4>Visiteurs</h4>
      </div>
    </div>
   </div>
@@ -59,36 +64,32 @@
 <!--Latest User-->
 <div class="panel panel-default">
   <div class="panel-heading"style="background-color: #0f2f5b; color:#fff">
-    <h3 class="panel-title">Latest Users</h3>
+    <h3 class="panel-title">Articles récents</h3>
   </div>
   <div class="panel-body">
     <table class="table table-striped table-hover">
-      <tr>
-        <th>Name</th>
-        <th>Email</th>
-        <th>Joined</th>
-      </tr>
-
-    <tr>
-      <td>Madhav Prasad</td>
-      <td>mr.madhavprasad@gmail.com</td>
-      <td>Dec 13,2014</td>
-    </tr>
-    <tr>
-      <td>Nagendra Kushwaha</td>
-      <td>nkushwaha822@gmail.com</td>
-      <td>Feb 15,2014</td>
-    </tr>
-    <tr>
-      <td>Arun Kumar</td>
-      <td>kumarun@yahoo.com</td>
-      <td>Aug 17, 2015</td>
-    </tr>
-    <tr>
-      <td>Nabin Singh</td>
-      <td>singhNavs@outlook.com</td>
-      <td>March 08,2016</td>
-    </tr>
+        <tr>
+            <th>N°</th>
+            <th>Catégorie</th>
+            <th>Titre</th>
+            <th>Contenu</th>
+            <th>Image</th>
+            <th>Prix</th>
+            <th>Auteur</th>
+            <th>Date</th>
+        </tr>
+    <?php while ($data=mysqli_fetch_array($que)) { ?>
+        <tr>
+            <td><?php echo($data['id_art']); ?></td>
+            <td><?php echo($data['categorie_art']); ?></td>
+            <td><?php echo($data['titre_art']); ?></td>
+            <td><?php echo($data['contenu_art']); ?></td>
+            <td><img src="images/<?php echo ($data['image_art'])?>" width="100" height="100"></td>
+            <td><?php echo($data['prix_art']); ?></td>
+            <td><?php echo($data['auteur_art']); ?></td>
+            <td><?php echo($data['date_pub_art']); ?></td>
+        </tr>
+        <?php } ?>
     </table>
 
   </div>
