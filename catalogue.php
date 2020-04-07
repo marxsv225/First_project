@@ -31,7 +31,7 @@ include "menu.php";
         <div class="col-md-4">
           <div class="our-team-main">
             <div class="team-front">
-              <a href="articles/article_1.html" class="overimage">
+              <a href="achat.php" class="overimage">
             	  <img src="images/reso.jpg" alt="Lights" style="width:100%" class="img-responsive" />
                 <span class="titrearticle"><strong>Comment utiliser les réseaux sociaux ?</strong></span>
               </a>
@@ -44,7 +44,7 @@ include "menu.php";
             	natoque.
             </span>
             <div class="centrer">
-              <a href="articles/article_1.html" class="overimage">
+              <a href="achat.php" class="overimage">
                 <button type="button" name="button" class="btn btn-vaka centrer">Lire l'article</button>
               </a>
             </div>
@@ -54,7 +54,7 @@ include "menu.php";
         <div class="col-md-4">
           <div class="our-team-main">
             <div class="team-front">
-              <a href="articles/article_2.php" class="overimage">
+              <a href="achat.php" class="overimage">
             	  <img src="images/refont.jpg" alt="Lights" style="width:100%" class="img-responsive" />
                 <span class="titrearticle"><strong>Le refont : La réussite du site web !</strong></span>
               </a>
@@ -67,7 +67,7 @@ include "menu.php";
             	natoque.
             </span>
             <div class="centrer">
-              <a href="articles/article_2.php" class="overimage">
+              <a href="achat.php" class="overimage">
                 <button type="button" name="button" class="btn btn-vaka centrer">Lire l'article</button>
               </a>
             </div>
@@ -77,7 +77,7 @@ include "menu.php";
         <div class="col-md-4">
           <div class="our-team-main">
             <div class="team-front">
-              <a href="articles/article_3.html" class="overimage">
+              <a href="achat.php" class="overimage">
             	  <img src="images/digital.jpg" alt="Lights" style="width:100%" class="img-responsive" />
                 <span class="titrearticle"><strong>3 indispensables formations de Marketing Digital</strong></span>
               </a>
@@ -90,7 +90,7 @@ include "menu.php";
             	natoque.
             </span>
             <div class="centrer">
-              <a href="articles/article_3.html" class="overimage">
+              <a href="achat.php" class="overimage">
                 <button type="button" name="button" class="btn btn-vaka centrer">Lire l'article</button>
               </a>
             </div>
@@ -102,7 +102,7 @@ include "menu.php";
         <div class="col-md-4">
           <div class="our-team-main">
             <div class="team-front">
-              <a href="articles/article_4.html" class="overimage">
+              <a href="achat.php" class="overimage">
             	  <img src="images/devweb.jpg" alt="Lights" style="width:100%" class="img-responsive" />
                 <span class="titrearticle"><strong>Dev web : 5 langages à connaître absolument</strong></span>
               </a>
@@ -115,7 +115,7 @@ include "menu.php";
             	natoque.
             </span>
             <div class="centrer">
-              <a href="articles/article_4.html" class="overimage">
+              <a href="achat.php" class="overimage">
                 <button type="button" name="button" class="btn btn-vaka centrer">Lire l'article</button>
               </a>
             </div>
@@ -125,7 +125,7 @@ include "menu.php";
         <div class="col-md-4">
           <div class="our-team-main">
             <div class="team-front">
-              <a href="articles/article_5.html" class="overimage">
+              <a href="achat.php" class="overimage">
             	  <img src="images/internet.jpg" alt="Lights" style="width:100%" class="img-responsive" />
                 <span class="titrearticle"><strong>A la découverte de l'autre côté de l'internet</strong></span>
               </a>
@@ -138,7 +138,7 @@ include "menu.php";
             	natoque.
             </span>
             <div class="centrer">
-              <a href="articles/article_5.html" class="overimage">
+              <a href="achat.php" class="overimage">
                 <button type="button" name="button" class="btn btn-vaka centrer">Lire l'article</button>
               </a>
             </div>
@@ -148,7 +148,7 @@ include "menu.php";
         <div class="col-md-4">
           <div class="our-team-main">
             <div class="team-front">
-              <a href="articles/article_6.html" class="overimage">
+              <a href="achat.php" class="overimage">
             	  <img src="images/design.jpg" alt="Lights" style="width:100%" class="img-responsive" />
                 <span class="titrearticle"><strong>L'éclosion des web designeurs en Côte d'Ivoire</strong></span>
               </a>
@@ -161,7 +161,7 @@ include "menu.php";
             	natoque.
             </span>
             <div class="centrer">
-              <a href="articles/article_6.html" class="overimage">
+              <a href="achat.php" class="overimage">
                 <button type="button" name="button" class="btn btn-vaka centrer">Lire l'article</button>
               </a>
             </div>
