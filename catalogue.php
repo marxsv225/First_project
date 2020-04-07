@@ -6,6 +6,7 @@
 include "securite.php";
 include "menu.php";
 ?>
+
     <div class="row row1">
         <div class="col-md-2 col-xs-2 col-lg-4">
           <!-- Espace gauche -->
@@ -13,7 +14,7 @@ include "menu.php";
         <?php include "citation.php"?>
         <div class="col-md-2 col-xs-2 col-lg-4">
             <a onclick="$('#myModal').modal('show');">
-               <button class="btn-achat">J'ACHETE</button>
+               <button class="btn-achat" id="scroler">J'ACHETE <br> UN <br> ARTICLE</button>
             </a>
         </div>
     </div>
@@ -168,4 +169,5 @@ include "menu.php";
 	       </div>
         </div>
       </div>
+    
 <?php include "footer.php"; ?>

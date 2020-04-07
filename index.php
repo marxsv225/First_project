@@ -64,8 +64,8 @@
         <?php include "citation.php"?>
         <div class="col-md-2 col-xs-2 col-lg-4">
           <!-- espace droit -->
-    </div>
-</div>
+        </div>
+      </div>
       
 
       <!-- Modal -->
