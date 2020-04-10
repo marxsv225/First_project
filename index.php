@@ -1,6 +1,10 @@
 
   <?php session_start(); ?>
-      
+  <?php
+include "connect.php";
+$requete= 'SELECT * FROM articles ORDER BY id_art DESC';
+$don = mysqli_query($con, $requete) or die ('Erreur SQL !'.$requete.'<br/>'.mysql_error());
+?>  
     <?php include("menu.php"); ?>
       <div id="myCarousel" class="carousel slide" data-ride="carousel" data-wrap="true" data-pause="false" data-interval="7000">
         <!-- Indicators-->
@@ -352,13 +356,10 @@
           <div class="colonne colonne2">
             <p class="grandtitre">Articles récents</p>
             <hr>
-            <ul>
-              <li><a href="#">Web design</a></li>
-              <li><a href="#">Infographie</a></li>
-              <li><a href="#">Web refont</a></li>
-              <li><a href="#">Développement web</a></li>
-              <li><a href="#">Développement mobile</a></li>
-              <li><a href="#">Le referencement</a></li>
+            <ul class="maliste">
+              <?php while ($donnee=mysqli_fetch_array($don)) {?>
+              <li><a href="achat.php?code=<?php $donnee['id_art']; ?>"><?php echo ($donnee['titre_art']);?></a></li>
+              <?php } ?>
             </ul>
           </div>
         </div>

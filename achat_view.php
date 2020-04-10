@@ -1,9 +1,4 @@
-<?php
-include "connect.php";
-$requete= 'SELECT * FROM articles ORDER BY id_art DESC LIMIT 1';
-$que = mysqli_query($con, $requete) or die ('Erreur SQL !'.$requete.'<br/>'.mysql_error());
-$data=mysqli_fetch_array($que);
-?>
+
 <div class="row">
     <div class="col-md-12">
         <img src="images/imagehote.jpg" alt="Image d'accueil" class="img-responsive imageentete">
@@ -21,8 +16,8 @@ $data=mysqli_fetch_array($que);
 <div class="row">
         <div class="col-md-8">
           <div class="colonne">
-            <h3 class="petittitre"><?php echo ($data['titre_art'])?></h3>
-              <img src="admin/images/<?php echo ($data['image_art'])?>" alt="DEVELOPPEMENT WEB" class="img-responsive thumbnail">
+            <h3 class="petittitre"><?php echo ($datas['titre_art'])?></h3>
+              <img src="admin/images/<?php echo ($datas['image_art'])?>" alt="DEVELOPPEMENT WEB" class="img-responsive thumbnail">
               <!-- Trigger the modal with a button -->
                 <a onclick="$('#myModal').modal('show');">
                   <button type="button" class="btn btn-vaka btn-lg">
@@ -72,7 +67,7 @@ $data=mysqli_fetch_array($que);
                 </div><br><br>
                 <!-- FIN MODAL -->
               <p>
-              <?php echo ($data['contenu_art'])?>
+              <?php echo ($datas['contenu_art'])?>
               </p>
               <h3 class="petittitre">Lorem ipsum dolor sit amet, consectetur adipisicing elit</h3>
               <p>
@@ -94,9 +89,9 @@ $data=mysqli_fetch_array($que);
                 				  <div class="carousel slide" id="fade-quote-carousel" data-ride="carousel" data-interval="3000">
                 				  <!-- Carousel indicators -->
                               <ol class="carousel-indicators">
-                        				<li data-target="#fade-quote-carousel" data-slide-to="0"></li>
-                        				<li data-target="#fade-quote-carousel" data-slide-to="1"></li>
-                        				<li data-target="#fade-quote-carousel" data-slide-to="2" class="active"></li>
+                        		<li data-target="#fade-quote-carousel" data-slide-to="0"></li>
+                        		<li data-target="#fade-quote-carousel" data-slide-to="1"></li>
+                        		<li data-target="#fade-quote-carousel" data-slide-to="2" class="active"></li>
                                 <li data-target="#fade-quote-carousel" data-slide-to="3"></li>
                                 <li data-target="#fade-quote-carousel" data-slide-to="4"></li>
                                 <li data-target="#fade-quote-carousel" data-slide-to="5"></li>
@@ -115,9 +110,9 @@ $data=mysqli_fetch_array($que);
                                   <div class="profile-circle" style="background-color: rgba(77,5,51,.2);">
                                     <img src="images/tem5.png" alt="" class="img-responsive img-circle">
                                   </div>
-                				    	    <blockquote>
-                				    		    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, veritatis nulla eum laudantium totam tempore optio doloremque laboriosam quas, quos eaque molestias odio aut eius animi. Impedit temporibus nisi accusamus.</p>
-                				    	    </blockquote>
+                				    	<blockquote>
+                				    		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, veritatis nulla eum laudantium totam tempore optio doloremque laboriosam quas, quos eaque molestias odio aut eius animi. Impedit temporibus nisi accusamus.</p>
+                				    	</blockquote>
                 				        </div>
                 				        <div class="active item">
                                   <div class="profile-circle" style="background-color: rgba(145,169,216,.2);">
@@ -148,8 +143,8 @@ $data=mysqli_fetch_array($que);
                                     <img src="images/tem7.png" alt="" class="img-responsive img-circle">
                                   </div>
                     			    	    <blockquote>
-                				    		      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, veritatis nulla eum laudantium totam tempore optio doloremque laboriosam quas, quos eaque molestias odio aut eius animi. Impedit temporibus nisi accusamus.</p>
-                				    	      </blockquote>
+                				    		    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, veritatis nulla eum laudantium totam tempore optio doloremque laboriosam quas, quos eaque molestias odio aut eius animi. Impedit temporibus nisi accusamus.</p>
+                				    	    </blockquote>
                 				        </div>
                     				  </div>
                     				</div>

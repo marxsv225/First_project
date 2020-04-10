@@ -109,47 +109,42 @@
 			<h3 class="panel-title">Enregistrement d'un nouvel article <span class="glyphicon glyphicon-pencil"></span></h3>
 		</div>
 		<div class="panel-body">
-			<form role="form">
+		<form role="form" method="post" action="" enctype="multipart/form-data">
 			    <div class="row">
 			    	<div class="col-xs-6 col-sm-6 col-md-6">
 			    		<div class="form-group">
-			                <input type="text" name="first_name" id="first_name" class="form-control input-sm" placeholder="First Name">
+							<input type="text" name="categorie" id="title" class="form-control input-sm"  required>
 			    		</div>
 			    	</div>
 			    	<div class="col-xs-6 col-sm-6 col-md-6">
 			    		<div class="form-group">
-			    			<input type="text" name="last_name" id="last_name" class="form-control input-sm" placeholder="Last Name">
+			    			<input type="text" name="titre" id="title" class="form-control input-sm"  required>
 			    		</div>
 			    	</div>
 			    </div>
 			    		<div class="form-group">
-			    			<textarea name="contenu" id="" cols="20" rows="6" class="form-control"></textarea>
+			    			<textarea name="contenu" id="" cols="20" rows="6" class="form-control" required></textarea>
 			    		</div>
 			    <div class="row">
-			    	<div class="col-xs-6 col-sm-6 col-md-6">
+			    	<div class="col-xs-12 col-sm-12 col-md-12">
 			    		<div class="form-group">
-			    			<input type="file" name="image" id="image" class="form-control input-sm" placeholder="Charger l'image">
+			    			<input type="file" name="photo" id="image" class="form-control input-sm" required>
 			    		</div>
 			        </div>
-			    	<div class="col-xs-6 col-sm-6 col-md-6">
-			    		<div class="form-group">
-			    			<input type="password" name="password_confirmation" id="password_confirmation" class="form-control input-sm" placeholder="Confirm Password">
-			    		</div>
-			    	</div>
                 </div>
                 <div class="row">
 			    	<div class="col-xs-6 col-sm-6 col-md-6">
 			    		<div class="form-group">
-			    			<input type="password" name="password" id="password" class="form-control input-sm" placeholder="Password">
+                            <input type="text" name="prix" id="price" class="form-control input-sm"  required>
 			    		</div>
 			    	</div>
 			    	<div class="col-xs-6 col-sm-6 col-md-6">
 			    		<div class="form-group">
-			    			<input type="password" name="password_confirmation" id="password_confirmation" class="form-control input-sm" placeholder="Confirm Password">
+                            <input type="text" name="auteur" id="author" class="form-control input-sm"  required>
 			    		</div>
 			    	</div>
 			    </div>			
-			    <input type="submit" value="ENREGISTRER" class="btn btn-vaka btn-block" name="modifier"> 		
+			    <input type="submit" value="MODIFIER" class="btn btn-vaka btn-block" name="modifier"> 		
 			</form>
 		</div>
 	</div>

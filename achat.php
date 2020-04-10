@@ -6,6 +6,13 @@
 include "securite.php";
 
 include "menu.php";
+$code=$_GET['code'];
+include "connect.php";
+
+$req= 'SELECT * FROM articles WHERE id_art = $code';
+$que = mysqli_query($con, $req) or die ('Erreur SQL !'.$req.'<br/>'.mysqli_error($con));
+$datas=mysqli_fetch_array($que);
+
 include "achat_view.php";
  ?>
 

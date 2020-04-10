@@ -519,3 +519,12 @@ display: none;
   text-decoration: none;
   
 }
+.maliste{
+  padding-left: 20px;
+
+}
+.maliste li{
+  list-style: disc;
+  padding-bottom: 10px;
+  
+}

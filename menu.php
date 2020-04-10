@@ -154,6 +154,7 @@ $data=mysqli_fetch_array($que);
                 <div class="panel-body">
                   <li><a href="realisations/calculate.php"> Calculatrice </a></li>
                   <li><a href="realisations/conjugaison/index.php"> Conjugaison </a></li>
+                  <li><a href="realisations/voyageur/index.php"> Voyageur </a></li>
                 </div>
               </div>
               <li><a href=""> BLOG </a></li>
