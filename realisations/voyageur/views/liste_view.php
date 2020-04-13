@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="dist/css/bootstrap.css">
 </head>
 <body>
+<img src="../../images/VAKA MARCEL.png" alt="Blog de VAKA" class="img-responsive monlogo" width="130" height="100">
     <div class="panel panel-default">
     <div class="panel-heading"style="background-color: #0f2f5b; color:#fff">
         <h3 class="panel-title">LISTE DES CLIENTS</h3>
