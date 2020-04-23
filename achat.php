@@ -3,17 +3,16 @@
 // $requete= 'SELECT * FROM articles ORDER BY id_art DESC LIMIT 1';
 // $que = mysqli_query($con, $requete) or die ('Erreur SQL !'.$requete.'<br/>'.mysql_error());
 // $data=mysqli_fetch_array($que);
+$code=$_GET['code'];
 include "securite.php";
 
 include "menu.php";
-$code=$_GET['code'];
+ //var_dump($code); 
 include "connect.php";
 
-$req= 'SELECT * FROM articles WHERE id_art = $code';
+$req= "SELECT * FROM articles WHERE id_art = '$code'";
 $que = mysqli_query($con, $req) or die ('Erreur SQL !'.$req.'<br/>'.mysqli_error($con));
-$datas=mysqli_fetch_array($que);
+$articles=mysqli_fetch_array($que);
 
 include "achat_view.php";
  ?>
-
-

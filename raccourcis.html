@@ -1,0 +1,132 @@
+<!-- MES RACCOURCIS SUR VS CODE -->
+
+<!-- 
+CTRL + b : afficher ou cacher la side barre (la barre latterale gauche)
+CTRL + ALT + -> : divise l'editeur en deux pour pouvoir editer deux fichiers a la fois
+CTRL + ù : affiche le terminal
+ALT + z : pour activer le retour a la ligne
+- Pour copier toute une ligne on n'a pas besoin de la selectionner, il faut juste cliquer dessus et faire ctrl + c
+CTRL + -> ou <-  : pour se deplacer de mot en mot sur une ligne
+CTRL + MAJ + -> ou <- : pour faire une selection rapide
+ALT + click : pour avoir multicurseur
+ALT + direction : pour deplacer une ligne
+ALT + SHIFT + direction : pour multiplier une ligne
+ -->
+
+ <!-- <!DOCTYPE html>
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Document</title>
+     <script src="js.js"></script>
+     
+ </head>
+ <body>
+    <form action="" onsubmit="return verifForm(this)">
+        <p>
+          Pseudo : <input type="text" name="pseudo" onblur="verifPseudo(this)" /><br />
+          E-mail : <input type="text" name="email" size="30" onblur="verifMail(this)" /><br />
+          Âge : <input type="text" name="age" size="2" onblur="verifAge(this)" /> ans<br />
+          <input type="submit" value="Valider" />
+        </p>  
+      </form>
+ </body>
+ </html> -->
+
+ <!-- <!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+        <style>
+            .nodisplay, .displayondemand { display:none; }
+            #showForm1:checked ~ #form1 { display: block; }
+            #showForm2:checked ~ #form2 { display: block; }
+            input[name=showForm]:checked + label { text-decoration: underline; }
+        </style>
+    </head>
+    <body>
+        <input  id=showForm1 name=showForm type=radio class="nodisplay">
+        <label for=showForm1>Formulaire 1</label>
+        &nbsp;
+        <input  id=showForm2 name=showForm type=radio class="nodisplay">
+        <label for=showForm2>Formulaire 2</label>
+ 
+        <form id=form1 class="displayondemand">
+            <label>form1:text1</label>
+            <input name=text1 type=text value="">
+            <br>
+            <input type=submit value=Valider>
+            <input type=reset  value=Annuler>
+        </form>
+ 
+        <form id=form2 class="displayondemand">
+            <label>form2:text1</label>
+            <input name=text1 type=text value="">
+            <input type=submit value=Valider>
+            <input type=submit value=Annuler>
+        </form>
+    </body>
+</html> -->
+
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Manipulation des formulaires</title>
+    <script src="js.js"></script>
+</head>
+
+<body>
+    <form>
+        <h1>Formulaire d'inscription</h1>
+        <p>
+            <label for="pseudo">Pseudo</label> :
+            <input type="text" name="pseudo" id="pseudo" required>
+            <span id="aidePseudo"></span>
+        </p>
+        <p>
+            <label for="mdp">Mot de passe</label> :
+            <input type="password" name="mdp" id="mdp" required>
+            <span id="aideMdp"></span>
+        </p>
+        <p>
+            <label for="courriel">Courriel</label> :
+            <input type="email" name="courriel" id="courriel" required placeholder="utilisateur@domaine.fr">
+            <span id="aideCourriel"></span>
+        </p>
+        <p>
+            <input type="checkbox" name="confirmation" id="confirmation">
+            <label for="confirmation">M'envoyer un courriel de confirmation</label>
+        </p>
+        <p>
+            <input type="radio" name="abonnement" id="abonewspromo" value="abonewspromo">
+            <label for="abonewspromo">M'abonner à la newsletter et aux promotions</label>
+            <br>
+            <input type="radio" name="abonnement" id="abonews" value="abonews">
+            <label for="abonews">M'abonner uniquement à la newsletter</label>
+            <br>
+            <input type="radio" name="abonnement" id="aborien" value="aborien" checked>
+            <label for="aborien">Ne pas m'abonner</label>
+            <br>
+        </p>
+        <p>
+            <label for="nationalite">Nationalité :</label>
+            <select name="nationalite" id="nationalite">
+                <option value="FR" selected>Française</option>
+                <option value="BE">Belge</option>
+                <option value="SUI">Suisse</option>
+                <option value="XX">Autre</option>
+            </select>
+        </p>
+
+        <input type="submit" value="Envoyer">
+        <input type="reset" value="Annuler">
+    </form>
+
+    <script src="js.js"></script>
+</body>
+
+</html>

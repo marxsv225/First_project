@@ -1,9 +1,9 @@
+<?php include "partials/_menu.php" ?>
 <?php
 include "../connect.php";
 $requete= 'SELECT * FROM articles ORDER BY id_art ASC';
 $que = mysqli_query($con, $requete) or die ('Erreur SQL !'.$requete.'<br/>'.mysql_error());
  ?>
-<?php include "partials/_menu.php" ?>
 <br>
 
   <section id="breadcrumb">

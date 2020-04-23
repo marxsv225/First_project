@@ -16,8 +16,8 @@
 <div class="row">
         <div class="col-md-8">
           <div class="colonne">
-            <h3 class="petittitre"><?php echo ($datas['titre_art'])?></h3>
-              <img src="admin/images/<?php echo ($datas['image_art'])?>" alt="DEVELOPPEMENT WEB" class="img-responsive thumbnail">
+            <h3 class="petittitre"><?php echo ($articles['titre_art']);?></h3>
+              <img src="admin/images/<?php echo ($articles['image_art']);?>" alt="DEVELOPPEMENT WEB" class="img-responsive thumbnail">
               <!-- Trigger the modal with a button -->
                 <a onclick="$('#myModal').modal('show');">
                   <button type="button" class="btn btn-vaka btn-lg">
@@ -42,11 +42,11 @@
                       <div class="modal-body">
                         <p>L'article que vous avez choisi est :</p>
                         <div class="well well-lg monform">
-                          Comment utiliser les réseaux sociaux ?
+                          <?php echo ($articles['titre_art']);?>
                         </div>
                         <p>Le coût est :</p>
                         <div class="well well-lg monform">
-                          600 FCFA
+                          <?php echo ($articles['prix_art']);?>
                         </div>
                           <FORM NAME="form6" class="">
                             <label for="">Combien en voulez-vous ?</label>
@@ -67,7 +67,7 @@
                 </div><br><br>
                 <!-- FIN MODAL -->
               <p>
-              <?php echo ($datas['contenu_art'])?>
+              <?php echo ($articles['contenu_art']);?>
               </p>
               <h3 class="petittitre">Lorem ipsum dolor sit amet, consectetur adipisicing elit</h3>
               <p>

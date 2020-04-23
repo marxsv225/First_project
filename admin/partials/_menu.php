@@ -1,3 +1,4 @@
+<?php include "../securite.php"; ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -27,7 +28,7 @@
     <meta name="msapplication-TileImage" content="../images/favicon/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
     <!--end favicon  -->
-  <script type="text/javascript" src="../dist/js/jquery2.js"></script>
+  <script type="text/javascript" src="../../dist/js/jquery2.js"></script>
 	</head>
   <body>
   <nav class="navbar navbar-default">
@@ -50,8 +51,8 @@
           </ul>
 
           <ul class="nav navbar-nav navbar-right">
-            <li class="active"><a href="index.php">Welcome, [username]</a></li>
-            <li><a href="#">Logout</a></li>
+            <li class="active"><a href="index.php">Welcome, [<?php echo ((isset($_SESSION['PROFILE']))?($_SESSION['nom_prenoms']):"");?>]</a></li>
+            <li><a href="../logout.php">Logout</a></li>
           
           </ul>
         </div><!--/.nav-collapse -->
@@ -65,13 +66,13 @@
           </div>
           <div class="col-md-2">
            <div class="dropdown">
-            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Créer contenu
-            <span class="caret"></span></button>
-            <ul class="dropdown-menu">
+            <a href="../index.php" target="_blank"><button class="btn btn-primary dropdown-toggle" type="button">Le site</button></a>
+            <!-- <span class="caret"></span></button> </a>-->
+            <!-- <ul class="dropdown-menu">
                 <li><a href="#">Add Pages</a></li>
                 <li><a href="#">Add Posts</a></li>
                 <li><a href="#">Add Users</a></li>
-            </ul>
+            </ul> -->
             </div> 
           </div>
         </div>

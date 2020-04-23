@@ -184,7 +184,22 @@
                     }
     
                     }elseif($temps == 'futur'){
+                        if($verbe[0]=='a' || $verbe[0]=='e' || $verbe[0]=='i' || $verbe[0]=='o' || $verbe[0]=='u' || $verbe[0]=='y'){
+                            echo "<br>";
                         echo "<br>";
+                        echo "<h4><u><center>Le verbe <font color='red'>$verbe</font> au futur</center></u></h4>";
+                        
+                        echo "<center>";
+                        echo "J' ".lreplace("er","<font color='red'>erai</font>",$verbe)."<br/>";
+                        echo "Tu ".lreplace("er","<font color='red'>eras</font>",$verbe)."<br/>";
+                        echo "Il ".lreplace("er","<font color='red'>era</font>",$verbe)."<br/>";
+                        echo "Nous ".lreplace("er","<font color='red'>erons</font>",$verbe)."<br/>";
+                        echo "Vous ".lreplace("er","<font color='red'>erez</font>",$verbe)."<br/>";
+                        echo "Ils ".lreplace("er","<font color='red'>eront</font>",$verbe)."<br/>";
+                        echo "</center>";
+                        }
+                        else{
+                            echo "<br>";
                         echo "<br>";
                         echo "<h4><u><center>Le verbe <font color='red'>$verbe</font> au futur</center></u></h4>";
                         
@@ -196,6 +211,8 @@
                         echo "Vous ".lreplace("er","<font color='red'>erez</font>",$verbe)."<br/>";
                         echo "Ils ".lreplace("er","<font color='red'>eront</font>",$verbe)."<br/>";
                         echo "</center>";
+                        }
+                        
                     }elseif($temps == 'passe'){
                         $terminaisonManger = "ea";
                         $realTerm = $verbe === "manger" ? "<font color='red'>".$terminaisonManger."</font>" : "<font color='red'>a</font>"; 
