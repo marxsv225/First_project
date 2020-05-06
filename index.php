@@ -1,12 +1,25 @@
 
   <?php session_start(); ?>
   <?php
+  // Connecting to the Database
 include "connect.php";
+
+//The 6 Items displaying
 $requete= 'SELECT * FROM articles WHERE statut="non publié" ORDER BY id_art DESC LIMIT 6';
 $don = mysqli_query($con, $requete) or die ('Erreur SQL !'.$requete.'<br/>'.mysqli_error($con));
 
+//Request for display the articles titles
 $query= 'SELECT * FROM articles ORDER BY id_art DESC LIMIT 10';
 $queri = mysqli_query($con, $query) or die ('Erreur SQL !'.$query.'<br/>'.mysqli_error($con));
+
+//Request for display the articles categories
+$querycat= 'SELECT * FROM articles GROUP BY categorie_art';
+$categorie = mysqli_query($con, $querycat) or die ('Erreur SQL !'.$querycat.'<br/>'.mysqli_error($con));
+
+//Request to display the most recent article
+$newart='SELECT * FROM articles ORDER BY id_art DESC LIMIT 1';
+$newarticle= mysqli_query($con, $newart) or die ('Erreur SQL !'.$newart.'<br/>'.mysqli_error($con));
+$querynew=mysqli_fetch_array($newarticle);
 ?>  
     <?php include("menu.php"); ?>
       <div id="myCarousel" class="carousel slide" data-ride="carousel" data-wrap="true" data-pause="false" data-interval="7000">
@@ -92,7 +105,7 @@ $queri = mysqli_query($con, $query) or die ('Erreur SQL !'.$query.'<br/>'.mysqli
           <div class="our-team-main">
             <div class="team-front">
               <a href="achat.php" class="overimage">
-            	  <img src="admin/images/<?php echo ($article['image_art']);?>" alt="Lights" style="width:100%" class="img-responsive" />
+            	  <img src="../admin/images/<?php echo ($article['image_art']);?>" alt="Lights" style="width:100%" class="img-responsive" />
                 <span class="titrearticle"><strong><?php echo ($article['titre_art']);?></strong></span>
               </a>
             </div>
@@ -113,16 +126,11 @@ $queri = mysqli_query($con, $query) or die ('Erreur SQL !'.$query.'<br/>'.mysqli
       <div class="row">
         <div class="col-md-8">
           <div class="colonne">
-            <h3 class="petittitre">Une petite histoire pour tout débutant en Développement web</h3>
+            <h3 class="petittitre"><?php echo ($querynew['titre_art']); ?></h3>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
-                non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+              <?php echo ($querynew['contenu_art']); ?>
               </p>
-              <img src="images/devweb.jpg" alt="DEVELOPPEMENT WEB" class="img-responsive thumbnail">
+              <img src="../admin/images/<?php echo ($querynew['image_art']); ?>" alt="Article pic" class="img-responsive thumbnail">
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
                 incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
@@ -229,13 +237,10 @@ $queri = mysqli_query($con, $query) or die ('Erreur SQL !'.$query.'<br/>'.mysqli
           <div class="colonne colonne2">
             <p class="grandtitre">Catégories</p>
             <hr>
-            <ul>
-              <li><a href="#">Web design</a></li>
-              <li><a href="#">Infographie</a></li>
-              <li><a href="#">Web refont</a></li>
-              <li><a href="#">Développement web</a></li>
-              <li><a href="#">Développement mobile</a></li>
-              <li><a href="#">Le referencement</a></li>
+            <ul class="maliste">
+              <?php while ($categ=mysqli_fetch_array($categorie)) {?>
+                  <li><a href="#"><?php echo ($categ['categorie_art']);?></a></li>
+              <?php } ?>
             </ul>
           </div>
           <div class="colonne colonne2">
@@ -243,7 +248,7 @@ $queri = mysqli_query($con, $query) or die ('Erreur SQL !'.$query.'<br/>'.mysqli
             <hr>
             <ul class="maliste">
               <?php while ($donnee=mysqli_fetch_array($queri)) {?>
-              <li><a href="achat.php?code=<?php echo($donnee['id_art']); ?>"><?php echo ($donnee['titre_art']);?></a></li>
+              <li><a href="article.php?id=<?php echo($donnee['id_art']); ?>"><?php echo ($donnee['titre_art']);?></a></li>
               <?php } ?>
             </ul>
           </div>

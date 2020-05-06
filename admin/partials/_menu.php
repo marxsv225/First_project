@@ -1,4 +1,9 @@
-<?php include "../securite.php"; ?>
+<?php
+session_start();
+if (!(isset($_SESSION['PROFIL']))){
+    header("location:../connexion.php");
+}
+?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -28,7 +33,7 @@
     <meta name="msapplication-TileImage" content="../images/favicon/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
     <!--end favicon  -->
-  <script type="text/javascript" src="../../dist/js/jquery2.js"></script>
+  <script type="text/javascript" src="../dist/js/jquery2.js"></script>
 	</head>
   <body>
   <nav class="navbar navbar-default">
@@ -46,13 +51,13 @@
           <ul class="nav navbar-nav">
             <li class=""><a href="index.php">Dashboard</a></li>
             <li><a href="articles.php">Articles</a></li>
-            <li><a href="#">Visiteurs</a></li>
+            <li><a href="users.php">Visiteurs</a></li>
             <li><a href="#">Autres</a></li>
           </ul>
 
           <ul class="nav navbar-nav navbar-right">
-            <li class="active"><a href="index.php">Welcome, [<?php echo ((isset($_SESSION['PROFILE']))?($_SESSION['nom_prenoms']):"");?>]</a></li>
-            <li><a href="../logout.php">Logout</a></li>
+            <li class="active"><a href="index.php">Welcome, [<?php echo ((isset($_SESSION['PROFIL']))?($_SESSION['nom_prenoms']):"");?>]</a></li>
+            <li><a href="logout.php">Logout</a></li>
           
           </ul>
         </div><!--/.nav-collapse -->

@@ -17,7 +17,7 @@
         <div class="col-md-8">
           <div class="colonne">
             <h3 class="petittitre"><?php echo ($articles['titre_art']);?></h3>
-              <img src="admin/images/<?php echo ($articles['image_art']);?>" alt="DEVELOPPEMENT WEB" class="img-responsive thumbnail">
+              <img src="../admin/images/<?php echo ($articles['image_art']);?>" alt="DEVELOPPEMENT WEB" class="img-responsive thumbnail">
               <!-- Trigger the modal with a button -->
                 <a onclick="$('#myModal').modal('show');">
                   <button type="button" class="btn btn-vaka btn-lg">
@@ -167,25 +167,19 @@
           <div class="colonne colonne2">
             <p class="grandtitre">Catégories</p>
             <hr>
-            <ul>
-              <li><a href="#">Web design</a></li>
-              <li><a href="#">Infographie</a></li>
-              <li><a href="#">Web refont</a></li>
-              <li><a href="#">Développement web</a></li>
-              <li><a href="#">Développement mobile</a></li>
-              <li><a href="#">Le referencement</a></li>
+            <ul class="maliste">
+            <?php while ($categ=mysqli_fetch_array($categorie)) {?>
+                <li><a href="#"><?php echo ($categ['categorie_art']);?></a></li>
+              <?php } ?>
             </ul>
           </div>
           <div class="colonne colonne2">
             <p class="grandtitre">Articles récents</p>
             <hr>
-            <ul>
-              <li><a href="#">Web design</a></li>
-              <li><a href="#">Infographie</a></li>
-              <li><a href="#">Web refont</a></li>
-              <li><a href="#">Développement web</a></li>
-              <li><a href="#">Développement mobile</a></li>
-              <li><a href="#">Le referencement</a></li>
+            <ul class="maliste">
+              <?php while ($donart=mysqli_fetch_array($querart)) {?>
+                <li><a href="article.php?id=<?php echo($donart['id_art']); ?>"><?php echo ($donart['titre_art']);?></a></li>
+              <?php } ?>
             </ul>
           </div>
         </div>

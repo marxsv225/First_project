@@ -49,13 +49,13 @@ if(isset($_POST['connexion'])) { // si le bouton "Connexion" est appuyé
                 if(mysqli_num_rows($Requete) == 0) {
                     $mesereur= 'Le login ou le mot de passe est incorrect, le compte na pas été trouvé.  ';
                 } else {
-                    if ($_POST['nom']=="VAKA") {
+                    if ($req['role'] == "admin") {
                         // on ouvre la session avec $_SESSION:
                         session_start();
-                        $_SESSION['PROFILE']=$Requete;
+                        $_SESSION['PROFIL']=$Requete;
                         $_SESSION['nom_prenoms'] = $nom; // la session peut être appelée différemment et son contenu aussi peut être autre chose que le LOGIN
                         $_SESSION['photo'] = $req['photo'];
-                        header("location: admin/index.php");
+                        header("location: ../admin/index.php");
                     }
                     else {
                        // on ouvre la session avec $_SESSION:

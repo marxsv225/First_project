@@ -38,5 +38,7 @@ while ($villear=mysqli_fetch_array($getvillearr)) {
 $nbre = "SELECT COUNT(*) AS nbre FROM clients";
 $nbreto = mysqli_query($connect, $nbre);
 $nbretotal= mysqli_fetch_array($nbreto);
+
+
 include "views/card_view.php";
 ?>
