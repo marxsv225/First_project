@@ -14,7 +14,7 @@
     <li><a data-toggle="tab" href="#menu3">Suppression</a></li>
   </ul>
 </div>
-  <div class="tab-content">
+<div class="tab-content">
 
 	  <!-- ZONE D'AJOUT D'UN ARTICLE -->
 	  

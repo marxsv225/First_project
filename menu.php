@@ -127,14 +127,15 @@ $data=mysqli_fetch_array($que);
               <span class="dropdown">
                 <span>
                   <?php echo ((isset($_SESSION['PROFILE']))?('<img src="images/'.$_SESSION['photo'].'" alt="Avatar" style="max-width:30px;max-height:30px; border-radius:50%"/>'):"");?>
+                  <span class="caret"></span>
                 </span>
                 <span class="dropdown-content">
+                <ul>
+                <li><?php echo ((isset($_SESSION['PROFILE']))?($_SESSION['nom_prenoms']):"");?></li>
                 
-                  <?php echo ((isset($_SESSION['PROFILE']))?($_SESSION['nom_prenoms']):"");?>
-                
-                <a href="logout.php" class="text-primary">
-                  Déconnexion
-                </a>
+                  <li><a href="infos_user.php" class="text-primary">Mon profil</a></li>
+                  <li><a href="logout.php" class="text-primary">Déconnexion</a></li>
+                  </ul>
                 </span>
               </span>
               

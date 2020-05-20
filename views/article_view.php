@@ -19,7 +19,8 @@
             <h3 class="petittitre"><?php echo ($articles['titre_art']);?></h3>
               <img src="../admin/images/<?php echo ($articles['image_art']);?>" alt="DEVELOPPEMENT WEB" class="img-responsive thumbnail">
               <!-- Trigger the modal with a button -->
-                <a onclick="$('#myModal').modal('show');">
+                <!-- <a onclick="$('#myModal').modal('show');"> -->
+                <a href="achat.php?id=<?php echo ($articles['id_art']);?>">
                   <button type="button" class="btn btn-vaka btn-lg">
                     <span class="glyphicon glyphicon-shopping-cart"></span> J'achète
                   </button>

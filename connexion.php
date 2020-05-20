@@ -55,6 +55,7 @@ if(isset($_POST['connexion'])) { // si le bouton "Connexion" est appuyé
                         $_SESSION['PROFIL']=$Requete;
                         $_SESSION['nom_prenoms'] = $nom; // la session peut être appelée différemment et son contenu aussi peut être autre chose que le LOGIN
                         $_SESSION['photo'] = $req['photo'];
+                        $_SESSION['id'] = $req['id'];
                         header("location: ../admin/index.php");
                     }
                     else {
@@ -63,6 +64,8 @@ if(isset($_POST['connexion'])) { // si le bouton "Connexion" est appuyé
                         $_SESSION['PROFILE']=$Requete;
                         $_SESSION['nom_prenoms'] = $nom; // la session peut être appelée différemment et son contenu aussi peut être autre chose que le LOGIN
                         $_SESSION['photo'] = $req['photo'];
+                        $_SESSION['email'] = $req['email'];
+                        $_SESSION['id'] = $req['id'];
                         header("location: index.php");
                     }
                     

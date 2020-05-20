@@ -25,5 +25,5 @@ $querart = mysqli_query($con, $queryart) or die ('Erreur SQL !'.$queryart.'<br/>
 $querycat= 'SELECT * FROM articles GROUP BY categorie_art';
 $categorie = mysqli_query($con, $querycat) or die ('Erreur SQL !'.$querycat.'<br/>'.mysqli_error($con));
 
-include "article_view.php";
+include "views/article_view.php";
  ?>

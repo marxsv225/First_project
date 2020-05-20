@@ -2,7 +2,14 @@
 body{
   background-color: #e1cece;
 }
-
+::selection{
+  color: #0f2f5b;
+  background: #d25807;
+}
+::-moz-selection{
+  color: #0f2f5b;
+  background: #d25807;
+}
 a{
   color: #0f2f5b;
 }
@@ -73,7 +80,7 @@ li ul {
 background-color: #0f2f5b;
 width: auto;
 text-align: center;
-font-size: 30px;
+font-size: 20px;
 border-radius: 30px 30px 0 0;
 color: #ffffff;
 margin-top: 10px;
@@ -527,4 +534,97 @@ display: none;
   list-style: disc;
   padding-bottom: 10px;
   
+}
+
+/* PROFIL PAGE */
+
+.profil{
+  background-color: #fff;
+  text-align: center;
+  padding-top: 20px;
+}
+
+.btn-prof{
+  padding: 15px;
+  min-height: 20px;
+  min-width: 100%;
+  margin-top: 20px;
+  color: #0f2f5b;
+  box-shadow: 2px 2px #004c99;
+  margin-bottom: 15px;
+}
+a .btn-prof:hover {
+  background-color: rgb(245, 116, 41);
+}
+
+.autour{
+  text-align: left;
+  margin-bottom:30px
+}
+.extra{
+  margin: 20px;
+}
+.myform{
+  margin: 10px;
+  text-align: left;
+  margin-top: 20px;
+}
+
+/* PAGE ACHAT */
+
+.credit-card-box .panel-title {
+  display: inline;
+  font-weight: bold;
+}
+.credit-card-box .form-control.error {
+  border-color: red;
+  outline: 0;
+  box-shadow: inset 0 1px 1px rgba(0,0,0,0.075),0 0 8px rgba(255,0,0,0.6);
+}
+.credit-card-box label.error {
+font-weight: bold;
+color: red;
+padding: 2px 8px;
+margin-top: 2px;
+}
+.credit-card-box .payment-errors {
+font-weight: bold;
+color: red;
+padding: 2px 8px;
+margin-top: 2px;
+}
+.credit-card-box label {
+  display: block;
+}
+/* The old "center div vertically" hack */
+.credit-card-box .display-table {
+  display: table;
+}
+.credit-card-box .display-tr {
+  display: table-row;
+}
+.credit-card-box .display-td {
+  display: table-cell;
+  vertical-align: middle;
+  width: 50%;
+}
+/* Just looks nicer */
+.credit-card-box .panel-heading img {
+  min-width: 180px;
+}
+
+/* PAGE MESSAGE */
+
+/* div.mediacadre{
+  border-bottom: 1px solid #777;
+  padding: 20px;
+} */
+.oui{
+  background-color: cadetblue;
+  color: #0f2f5b;
+  border-radius: 20px;
+}
+
+.badge-col{
+  color: red;
 }

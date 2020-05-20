@@ -114,7 +114,7 @@ $querynew=mysqli_fetch_array($newarticle);
             	  <?php echo ($article['contenu_art']);?>
               </span>
             <div class="centrer">
-              <a href="achat.php?code=<?php $article['id_art']; ?>" class="overimage">
+              <a href="article.php?id=<?php echo ($article['id_art']); ?>" class="overimage">
                 <button type="button" name="button" class="btn btn-vaka centrer">Lire l'article</button>
               </a>
             </div>
