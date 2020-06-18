@@ -8,6 +8,7 @@ include "connect.php";
 $requete= 'SELECT * FROM articles WHERE statut="non publié" ORDER BY id_art DESC LIMIT 6';
 $don = mysqli_query($con, $requete) or die ('Erreur SQL !'.$requete.'<br/>'.mysqli_error($con));
 
+
 //Request for display the articles titles
 $query= 'SELECT * FROM articles ORDER BY id_art DESC LIMIT 10';
 $queri = mysqli_query($con, $query) or die ('Erreur SQL !'.$query.'<br/>'.mysqli_error($con));
@@ -248,7 +249,7 @@ $querynew=mysqli_fetch_array($newarticle);
             <hr>
             <ul class="maliste">
               <?php while ($donnee=mysqli_fetch_array($queri)) {?>
-              <li><a href="article.php?id=<?php echo($donnee['id_art']); ?>"><?php echo ($donnee['titre_art']);?></a></li>
+              <li><a href="article/<?php echo($donnee['id_art']); ?>"><?php echo ($donnee['titre_art']);?></a></li>
               <?php } ?>
             </ul>
           </div>

@@ -7,6 +7,13 @@
 $requete = 'SELECT * FROM users';
 $que = mysqli_query($con, $requete) or die ('Erreur SQL !'.$requete.'<br/>'.mysql_error());
 $data=mysqli_fetch_array($que);
+
+
+if (isset($_GET['barrech']) AND !empty($_GET['barrech'])) {
+  $rech = htmlspecialchars($_GET['barrech']);
+  $requete = "SELECT * FROM articles WHERE titre_art LIKE '%'.$rech.'%' ORDER BY id_art DESC";
+  $requete = mysqli_query($con, $search);
+}
  ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -50,7 +57,7 @@ $data=mysqli_fetch_array($que);
 <nav class="navbar navbar-default navbar-inverse navbar-fixed-top">
         <div class="container-fluid monmenu">
           <div class="navbar-header">
-            <a href="index.php" class="navbar-brand">
+            <a href="home" class="navbar-brand">
               <img src="images/VAKA MARCEL.png" alt="Blog de VAKA" class="img-responsive monlogo" width="150" height="100">
             </a>
             <!-- POUR LE MENU EN MODE MOBILE -->
@@ -77,9 +84,9 @@ $data=mysqli_fetch_array($que);
                   <li><a href="#">CONTACT</a></li>
                   <li>
                     <a href="index.html">
-                      <form class="navbar-form navbar-right" action="/action_page.php">
+                      <form class="navbar-form navbar-right" action="/action_page.php" >
                         <div class="input-group">
-                          <input type="text" class="form-control" placeholder="Search" name="search">
+                          <input type="search" class="form-control" placeholder="Search" name="search">
                           <div class="input-group-btn">
                             <button class="btn btn-default" type="submit">
                               <i class="glyphicon glyphicon-search"></i>
@@ -102,9 +109,9 @@ $data=mysqli_fetch_array($que);
           <a class="navbar-brand" href="#"></a>
           </div>
           <div class="collapse navbar-collapse" id="example-navbar">
-          <form class="navbar-form navbar-right" action="/action_page.php">
+          <form class="navbar-form navbar-right" action="" method ="GET">
             <div class="input-group">
-              <input type="text" class="form-control" placeholder="Search" name="search">
+              <input type="search" class="form-control" placeholder="Searching" name="barrech">
               <div class="input-group-btn">
                 <button class="btn btn-default" type="submit">
                   <i class="glyphicon glyphicon-search"></i>
@@ -121,25 +128,27 @@ $data=mysqli_fetch_array($que);
                 <a href="catalogue.php" class="point">
                 <span class="glyphicon glyphicon-shopping-cart" title="Achat"></span> Achat
               </a>
-              <a href="connexion.php" class="connect" title="Se connecter">
-                <span class="glyphicon glyphicon-user"></span> 
-              </a> 
-              <span class="dropdown">
-                <span>
-                  <?php echo ((isset($_SESSION['PROFILE']))?('<img src="images/'.$_SESSION['photo'].'" alt="Avatar" style="max-width:30px;max-height:30px; border-radius:50%"/>'):"");?>
-                  <span class="caret"></span>
-                </span>
-                <span class="dropdown-content">
-                <ul>
-                <li><?php echo ((isset($_SESSION['PROFILE']))?($_SESSION['nom_prenoms']):"");?></li>
-                
-                  <li><a href="infos_user.php" class="text-primary">Mon profil</a></li>
-                  <li><a href="logout.php" class="text-primary">Déconnexion</a></li>
-                  </ul>
-                </span>
-              </span>
-              
-              
+                <?php if (isset($_SESSION['PROFILE'])) { ?>
+                  <span class="dropdown">
+                    <span>
+                      <?php  echo '<img src="images/'.$_SESSION['photo'].'" alt="Avatar"      style="max-width:30px; max-height:30px; border-radius:50%"/>'; ?>
+                      <span class="caret"></span>
+                    </span>
+                    <span class="dropdown-content">
+                      <ul>
+                        <li><?php echo ($_SESSION['nom_prenoms']); ?></li>
+                        <li><a href="infos_user" class="text-primary">Mon profil</a></li>
+                        <li><a href="logout" class="text-primary">Déconnexion</a></li>
+                      </ul>
+                    </spanl>
+                  </span>
+                <?php } else { ?>
+                  <a href="connexion" class="connect" title="Se connecter">
+                    <span class="glyphicon glyphicon-user"></span> 
+                  </a> 
+                <?php  } ?>
+
+                 
             </div>
           </form>
           

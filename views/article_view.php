@@ -79,85 +79,100 @@
                 pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
                 deserunt mollit anim id est laborum.
               </p>
-              <p class="grandtitre margehaut">Les avis de quelques abonnés</p>
+              <p class="grandtitre margehaut">Commentaires</p>
               <hr>
-              <div class="espacetemoignage">
+              <?php while ($comments = mysqli_fetch_array($showcmtquery)) {?>
+              <div style ="border-left : 5px solid #a1a9bb; background-color : rgba(200, 200, 255, 0.5)">
                 <section id="carousel">
-                	<div class="container">
+                  <div class="container"> 
+                    <?php 
+                      $time1 = time();
+                      $time2 = strtotime($comments['date_cmt']);
+                      $diff = abs($time1 - $time2);
+                      $tempsecond = $diff % 60;
+
+                      $tempminutee = floor(($diff - $tempsecond)/60);
+                      $tempminute = $tempminutee % 60;
+
+                      $tempheuree = floor(($tempminute - $tempminute)/60);
+                      $tempheure = $tempheuree % 24;
+                      echo($comments['user']);
+                      echo('<span style = "font-size:10px; color : blue"> - '.substr($comments['date_cmt'], 0, 16).'</span>');
+                    ?>
                 		<div class="row">
                 			<div class="col-md-8">
-                        <div class="quote"><span class="glyphicon glyphicon-quote-left glyphicon-4x"></span></div>
-                				  <div class="carousel slide" id="fade-quote-carousel" data-ride="carousel" data-interval="3000">
-                				  <!-- Carousel indicators -->
-                              <ol class="carousel-indicators">
-                        		<li data-target="#fade-quote-carousel" data-slide-to="0"></li>
-                        		<li data-target="#fade-quote-carousel" data-slide-to="1"></li>
-                        		<li data-target="#fade-quote-carousel" data-slide-to="2" class="active"></li>
-                                <li data-target="#fade-quote-carousel" data-slide-to="3"></li>
-                                <li data-target="#fade-quote-carousel" data-slide-to="4"></li>
-                                <li data-target="#fade-quote-carousel" data-slide-to="5"></li>
-                				      </ol>
-                				  <!-- Carousel items -->
-                				      <div class="carousel-inner">
-                				        <div class="item">
-                                  <div class="profile-circle" style="background-color: rgba(0,0,0,.2);">
-                                    <img src="images/tem1.png" alt="" class="img-responsive img-circle">
-                                  </div>
-                				    	    <blockquote>
-                				    		    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, veritatis nulla eum laudantium totam tempore optio doloremque laboriosam quas, quos eaque molestias odio aut eius animi. Impedit temporibus nisi accusamus.</p>
-                				    	    </blockquote>
-                				        </div>
-                				        <div class="item">
-                                  <div class="profile-circle" style="background-color: rgba(77,5,51,.2);">
-                                    <img src="images/tem5.png" alt="" class="img-responsive img-circle">
-                                  </div>
-                				    	<blockquote>
-                				    		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, veritatis nulla eum laudantium totam tempore optio doloremque laboriosam quas, quos eaque molestias odio aut eius animi. Impedit temporibus nisi accusamus.</p>
-                				    	</blockquote>
-                				        </div>
-                				        <div class="active item">
-                                  <div class="profile-circle" style="background-color: rgba(145,169,216,.2);">
-                                    <img src="images/tem3.png" alt="" class="img-responsive img-circle">
-                                  </div>
-                				    	    <blockquote>
-                				    		    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, veritatis nulla eum laudantium totam tempore optio doloremque laboriosam quas, quos eaque molestias odio aut eius animi. Impedit temporibus nisi accusamus.</p>
-                				    	    </blockquote>
-                				        </div>
-                                <div class="item">
-                                  <div class="profile-circle" style="background-color: rgba(77,5,51,.2);">
-                                    <img src="images/tem4.png" alt="" class="img-responsive img-circle">
-                                  </div>
-                    			    	  <blockquote>
-                				    		    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, veritatis nulla eum laudantium totam tempore optio doloremque laboriosam quas, quos eaque molestias odio aut eius animi. Impedit temporibus nisi accusamus.</p>
-                				    	    </blockquote>
-                				        </div>
-                                <div class="item">
-                                  <div class="profile-circle" style="background-color: rgba(77,5,51,.2);">
-                                    <img src="images/tem6.png" alt="" class="img-responsive img-circle">
-                                  </div>
-                      			    	<blockquote>
-                  				    		  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, veritatis nulla eum laudantium totam tempore optio doloremque laboriosam quas, quos eaque molestias odio aut eius animi. Impedit temporibus nisi accusamus.</p>
-                  				    	  </blockquote>
-                				        </div>
-                                <div class="item">
-                                  <div class="profile-circle" style="background-color: rgba(77,5,51,.2);">
-                                    <img src="images/tem7.png" alt="" class="img-responsive img-circle">
-                                  </div>
-                    			    	    <blockquote>
-                				    		    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, veritatis nulla eum laudantium totam tempore optio doloremque laboriosam quas, quos eaque molestias odio aut eius animi. Impedit temporibus nisi accusamus.</p>
-                				    	    </blockquote>
-                				        </div>
-                    				  </div>
-                    				</div>
-                    			</div>
-                    		</div>
+                        <div class="media">
+                          <?php 
+                            if ($comments['statut'] == 1 ) {
+                              echo '
+                                <div class="media-left">
+                                  <img src="../admin/images/'.$comments['image_user'].'" class="media-object" style="width:40px;">
+                                </div>
+                                <div class="media-body">
+                                  <h4 class="media-heading"></h4>
+                                  '.$comments['comment'].'
+                                </div>
+                              ';
+                            }else {
+                              echo '
+                                <div class="media-left">
+                                  <img src="../admin/images/avatar.png" class="media-object" style="width:40px;">
+                                </div>
+                                <div class="media-body">
+                                  <h4 class="media-heading"></h4>
+                                  '.$comments['comment'].'
+                                </div>
+                              ';
+                            }
+                          ?>
+                        </div>  
                     	</div>
-                    </section>
-              </div>
+                    </div>
+                  </div>
+                </section>
+              </div><br>
+              <?php }?>
               <!-- fin carousel -->
 
               <!-- CONTACT_FORM -->
-              <?php include 'contact_form.php'; ?>
+
+              <?php //include 'contact_form.php'; ?>
+              <div class="contactform">
+                <div class="avis">
+                    <h3>Merci de nous laisser votre avis</h3>
+                </div>
+                <?php 
+                  if (isset($_SESSION['nom_prenoms'])) 
+                  {
+                    echo '<form class="form-horizontal" action="" method="post">
+                      <div class="form-group">
+                        <div class="col-sm-12"><br>
+                          <textarea class="form-control contacted" id="comment" placeholder="Participez à la discussion" name="comment" required></textarea>
+                        </div>
+                        <div class="col-sm-offset-1 col-sm-10"><br>
+                          <input type="submit" class="btn btn-vaka" value="Envoyer" name="envoyer">
+                        </div>
+                      </div>
+                    </form>';
+                  } else 
+                  {
+                    echo '<form class="form-horizontal" action="" method="post">
+                      <div class="form-group">
+                        <div class="col-sm-12">
+                          <input type="text" class="form-control contacted" id="name" placeholder="Entrez un nom" name="name" required>
+                        </div>
+                        <div class="col-sm-12"><br>
+                          <textarea class="form-control contacted" id="comment" placeholder="Participez à la discussion" name="comment" required></textarea>
+                        </div>
+                        <div class="col-sm-offset-1 col-sm-10"><br>
+                          <input type="submit" class="btn btn-vaka" value="Envoyer" name="envoyer">
+                        </div>
+                      </div>
+                    </form>';
+                  } 
+                ?>
+                
+              </div>
               <!-- END CONTACT_FORM -->
             </div>
           </div>

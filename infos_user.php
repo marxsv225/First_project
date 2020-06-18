@@ -40,7 +40,7 @@ if (isset($_POST['validmessage'])) {
 $exp = "SELECT * FROM users WHERE role = 'admin'";
 $expquery = mysqli_query($con, $exp) or die ('Erreur SQL !'.$exp.'<br/>'.mysqli_error($con));
 $expediteur= mysqli_fetch_array($expquery);
-$idespe = $expediteur['id'];
+$idespe = $expediteur['id']; 
 
 $mesnl = "SELECT * FROM messages WHERE id_destinataire = '$id' AND statut = 'no' AND id_expediteur = '$idespe'";
 $mesnlquery = mysqli_query($con, $mesnl) or die ('Erreur SQL !'.$mesnl.'<br/>'.mysqli_error($con));

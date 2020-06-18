@@ -1,13 +1,15 @@
 <?php 
 include "securite.php";
 $id = $_SESSION['id'];
+$code = $_GET['id'];
 // $code = $_GET['id'];
 include "menu.php";
 include "connect.php";
 
 //AFFICHAGE DES UTILISATEURS DANS LA LISTE DEROULANTE DU CHAMP DESTINATAIRE
-$dest="SELECT * FROM users WHERE id <> $id";
+$dest="SELECT * FROM users WHERE role ='admin'";
 $destquery = mysqli_query($con, $dest) or die ('Erreur SQL !'.$dest.'<br/>'.mysqli_error($con));
+$users = mysqli_fetch_array($destquery);
 
 //ENVOIE DU MESSAGE
 if (isset($_POST['validmessage'])) {
@@ -37,5 +39,10 @@ $messlu = "SELECT * FROM messages WHERE id_expediteur = '$id' AND id_destinatair
 $messluquery = mysqli_query($con, $messlu) or die ('Erreur SQL !'.$messlu.'<br/>'.mysqli_error($con));
 
 include "views/message_view.php";
+
+//LECTURE DU MESSAGE
+$update="UPDATE messages SET statut = 'yes' WHERE id_mes='$code'";
+$updatequery=mysqli_query($con, $update) or die ('Erreur SQL !'.$update.'<br/>'.mysqli_error($con));
+
 include "footer.php";
 ?>

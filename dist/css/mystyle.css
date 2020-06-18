@@ -179,6 +179,12 @@ li > a :hover{
   margin-top: -15px;
   color: #ffffff
 }
+.comment{
+  background-color:  #e1cece;
+  min-height: 50px;
+  margin-top: -15px;
+  color: #ffffff
+}
 .contactform{
   margin-top: 20px;
   text-align: center;

@@ -2,13 +2,13 @@
 include "connect.php";
 if (isset($_POST['valider'])) {
 
-$login=$_POST['login'];
-$email=$_POST['email'];
-$nomphoto=$_FILES['photo']['name'];
+$login=htmlspecialchars($_POST['login']);
+$email=htmlspecialchars($_POST['email']);
+$nomphoto=htmlspecialchars($_FILES['photo']['name']);
 $fichierTemporaire=$_FILES['photo']['tmp_name'];
 move_uploaded_file($fichierTemporaire,'./images/'.$nomphoto);
-$password= md5($_POST['password']); //sha1() pour cripter
-$conf_password= md5($_POST['conf_password']);
+$password= htmlspecialchars(md5($_POST['password'])); //sha1() pour cripter
+$conf_password= htmlspecialchars(md5($_POST['conf_password']));
 $trn_date = date("Y-m-d H:i:s");
 $role = "Visiteur";
 if ( $_POST['conf_password'] != $_POST['password'] ) {
@@ -25,7 +25,7 @@ if ( $_POST['conf_password'] != $_POST['password'] ) {
             mysqli_query ($con, $inserer) or die ('Erreur SQL !'.$inserer.'<br/>'.mysql_error());
 
 
-            header('location: connexion.php');
+            header('location: connexion');
          }
          else {
              $erreur2="Cet utilisateur existe déjà veuillez changer de Nom !";

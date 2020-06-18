@@ -66,7 +66,7 @@ if(isset($_POST['connexion'])) { // si le bouton "Connexion" est appuyé
                         $_SESSION['photo'] = $req['photo'];
                         $_SESSION['email'] = $req['email'];
                         $_SESSION['id'] = $req['id'];
-                        header("location: index.php");
+                        header("location: home");
                     }
                     
                     

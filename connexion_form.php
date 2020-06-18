@@ -75,8 +75,8 @@
     
     <!-- Remind Passowrd -->
     <div id="formFooter">
-      <a class="underlineHover" href="index.php">Accueil</a>
-      <a class="underlineHover" href="enregistrement.php">Créer un compte</a>
+      <a class="underlineHover" href="home">Accueil</a>
+      <a class="underlineHover" href="creer-un-compte">Créer un compte</a>
       <a class="underlineHover" href="#">Mode de passe oublié ?</a>
     </div>
 

@@ -100,8 +100,8 @@
     
     <!-- Remind Passowrd -->
     <div id="formFooter">
-      <a class="underlineHover" href="index.php">Accueil</a>
-      <a class="underlineHover" href="connexion.php">Se connecter</a>
+      <a class="underlineHover" href="home">Accueil</a>
+      <a class="underlineHover" href="connexion">Se connecter</a>
     </div>
 
   </div>

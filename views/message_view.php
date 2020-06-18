@@ -15,10 +15,7 @@
                         <div class="form-group">
                             <label for="dest">Destinataire :</label>
                             <select name="destinataire" class="form-control" id="dest">
-                                <option selected disabled>Selectionner le  destinataire</option>
-                                <?php while ($users = mysqli_fetch_array($destquery)) {?>
-                                    <option value="<?php echo ($users['id']);?>"><?php echo ($users['nom_prenoms']);?></option>
-                                <?php  } ?>
+                                <option value="<?php echo ($users['id']);?>"><?php echo ($users['nom_prenoms']);?></option>
                             </select>
                         </div>
                         <div class="form-group">

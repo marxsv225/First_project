@@ -4,7 +4,7 @@ if (isset($_POST['envoyer'])) {
 
 $nom=$_POST['name'];
 $email=$_POST['email'];
-$message= md5($_POST['message']);
+$message= $_POST['message'];
 $trn_date = date("Y-m-d H:i:s");
 $browser = $_SERVER['HTTP_USER_AGENT'];
     
